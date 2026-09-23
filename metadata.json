@@ -1,0 +1,6 @@
+{
+  "name": "Padaria Bom Jesus - Tradição & Pão Artesanal em BH",
+  "description": "Landing page oficial da Padaria Bom Jesus em Belo Horizonte/MG. Pães artesanais com fornadas constantes, quitutes frescos e café especial na Rua Paranaíba, 291.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
