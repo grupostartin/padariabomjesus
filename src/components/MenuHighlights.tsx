@@ -104,7 +104,7 @@ export const MenuHighlights: React.FC<MenuHighlightsProps> = ({
             const isJustAdded = addedItemIds[item.id];
 
             return (
-              <ScrollReveal animation="fade-up" delay={index * 100} key={item.id}>
+              <ScrollReveal animation="fade-up" delay={Math.min(index * 70, 250)} key={item.id}>
                 <div
                   className="group flex flex-col bg-[#faf8f5] rounded-xl overflow-hidden border border-[#231812]/10 shadow-xs hover:shadow-md transition-all duration-300 h-full"
                 >

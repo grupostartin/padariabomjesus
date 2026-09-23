@@ -32,7 +32,7 @@ export const Differences: React.FC = () => {
               <ScrollReveal
                 key={diff.title}
                 animation="fade-up"
-                delay={index * 130}
+                delay={Math.min(index * 90, 300)}
                 className={`rounded-2xl flex flex-col ${
                   index === 0
                     ? 'lg:col-span-7'
