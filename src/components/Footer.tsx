@@ -1,6 +1,7 @@
 import React from 'react';
 import { Instagram, MessageCircle, MapPin, Phone } from 'lucide-react';
 import { BAKERY_INFO } from '../data/bakeryData';
+import { ScrollReveal } from './ScrollReveal';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Col */}
-          <div className="lg:col-span-4 space-y-4">
+          <ScrollReveal animation="fade-up" delay={50} className="lg:col-span-4 space-y-4">
             <span className="font-serif text-2xl font-bold tracking-tight text-white block">
               {BAKERY_INFO.name}
             </span>
@@ -35,10 +36,10 @@ export const Footer: React.FC = () => {
                 <MessageCircle className="w-4 h-4" />
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Nav Quick Links */}
-          <div className="lg:col-span-3 space-y-3">
+          <ScrollReveal animation="fade-up" delay={150} className="lg:col-span-3 space-y-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-amber-300 block">
               Navegação
             </span>
@@ -46,6 +47,11 @@ export const Footer: React.FC = () => {
               <li>
                 <a href="#sobre" className="hover:text-white transition-colors">
                   Sobre a Padaria
+                </a>
+              </li>
+              <li>
+                <a href="#cardapio" className="hover:text-white transition-colors">
+                  Vitrine & Quitutes
                 </a>
               </li>
               <li>
@@ -64,10 +70,10 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
             </ul>
-          </div>
+          </ScrollReveal>
 
           {/* Contact & Location Col */}
-          <div className="lg:col-span-5 space-y-3">
+          <ScrollReveal animation="fade-up" delay={250} className="lg:col-span-5 space-y-3">
             <span className="text-xs font-semibold uppercase tracking-wider text-amber-300 block">
               Visite a Nossa Loja
             </span>
@@ -84,18 +90,20 @@ export const Footer: React.FC = () => {
                 Segunda a Sexta: 06:00 – 20:30 · Sábado: 06:00 – 20:00 · Domingo: 06:30 – 13:30
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Quiet Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
-          <div>
-            &copy; {new Date().getFullYear()} {BAKERY_INFO.name}. Todos os direitos reservados.
+        <ScrollReveal animation="fade" delay={300}>
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
+            <div>
+              &copy; {new Date().getFullYear()} {BAKERY_INFO.name}. Todos os direitos reservados.
+            </div>
+            <div className="flex items-center gap-4">
+              <span>Rua Paranaíba, 291 — Bom Jesus — Belo Horizonte/MG</span>
+            </div>
           </div>
-          <div className="flex items-center gap-4">
-            <span>Rua Paranaíba, 291 — Bom Jesus — Belo Horizonte/MG</span>
-          </div>
-        </div>
+        </ScrollReveal>
       </div>
     </footer>
   );

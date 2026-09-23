@@ -6,6 +6,7 @@ import { WEEKLY_SCHEDULE, MenuItem } from './data/bakeryData';
 
 // Lazy loading below-the-fold components for performance & instant initial load
 const About = lazy(() => import('./components/About').then(m => ({ default: m.About })));
+const MenuHighlights = lazy(() => import('./components/MenuHighlights').then(m => ({ default: m.MenuHighlights })));
 const Differences = lazy(() => import('./components/Differences').then(m => ({ default: m.Differences })));
 const LocationMap = lazy(() => import('./components/LocationMap').then(m => ({ default: m.LocationMap })));
 const ContactForm = lazy(() => import('./components/ContactForm').then(m => ({ default: m.ContactForm })));
@@ -122,13 +123,20 @@ export default function App() {
           {/* 2. Sobre Nós */}
           <About />
 
-          {/* 3. Diferenciais */}
+          {/* 3. Vitrine de Destaques & Cardápio */}
+          <MenuHighlights
+            onSelectItemForOrder={handleAddItemForOrder}
+            onOpenOrderModal={() => setIsOrderModalOpen(true)}
+            selectedItemsCount={totalItemsCount}
+          />
+
+          {/* 4. Diferenciais */}
           <Differences />
 
-          {/* 4. Localização & Como Chegar */}
+          {/* 5. Localização & Como Chegar */}
           <LocationMap />
 
-          {/* 5. Contato Direto & Encomendas */}
+          {/* 6. Contato Direto & Encomendas */}
           <ContactForm onOpenOrderModal={() => setIsOrderModalOpen(true)} />
         </Suspense>
       </main>

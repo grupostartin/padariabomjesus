@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { MessageCircle, MapPin, Volume2, VolumeX, Play, Pause, Clock, Sparkles } from 'lucide-react';
 import { BAKERY_INFO } from '../data/bakeryData';
 import heroBg from '../assets/images/hero_bakery_fallback_1790180421752.jpg';
+import { ScrollReveal } from './ScrollReveal';
 
 interface HeroProps {
   onOpenOrderModal: () => void;
@@ -72,52 +73,62 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrderModal, isOpenNow, current
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1c140d]/55 to-[#1c140d] pointer-events-none" />
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
 
-      {/* Content Container */}
+      {/* Content Container with Scroll Reveal */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 lg:pt-32 lg:pb-24">
-        {/* Subtle Live Status Indicator without pill clutter */}
-        <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#fbf5ee] tracking-wide mb-6">
-          <span className={`inline-block w-2 h-2 rounded-full ${isOpenNow ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
-          <span className="text-amber-200/95 uppercase tracking-wider text-xs font-semibold">Belo Horizonte</span>
-          <span aria-hidden="true" className="text-white/40">·</span>
-          <span>{currentStatusText}</span>
-          <span aria-hidden="true" className="text-white/40">·</span>
-          <span className="hidden sm:inline text-white/80">Fornadas quentinhas o dia todo</span>
-        </div>
+        {/* Subtle Live Status Indicator */}
+        <ScrollReveal animation="fade-down" delay={100}>
+          <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#fbf5ee] tracking-wide mb-6">
+            <span className={`inline-block w-2 h-2 rounded-full ${isOpenNow ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'}`} />
+            <span className="text-amber-200/95 uppercase tracking-wider text-xs font-semibold">Belo Horizonte</span>
+            <span aria-hidden="true" className="text-white/40">·</span>
+            <span>{currentStatusText}</span>
+            <span aria-hidden="true" className="text-white/40">·</span>
+            <span className="hidden sm:inline text-white/80">Fornadas quentinhas o dia todo</span>
+          </div>
+        </ScrollReveal>
 
         {/* Marquee Headline */}
-        <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6 max-w-4xl mx-auto" style={{ textWrap: 'balance' }}>
-          A tradição do pão artesanal no coração do Bom Jesus
-        </h1>
+        <ScrollReveal animation="fade-up" delay={200}>
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] mb-6 max-w-4xl mx-auto" style={{ textWrap: 'balance' }}>
+            A tradição do pão artesanal no coração do Bom Jesus
+          </h1>
+        </ScrollReveal>
 
         {/* Narrative Prose */}
-        <p className="text-base sm:text-xl text-white/90 font-normal leading-relaxed max-w-2xl mx-auto mb-10" style={{ textWrap: 'balance' }}>
-          Pão francês estaladiço com fornadas constantes, quitutes frescos, bolo caseiro quentinho e o melhor café coado de Minas.
-        </p>
+        <ScrollReveal animation="fade-up" delay={300}>
+          <p className="text-base sm:text-xl text-white/90 font-normal leading-relaxed max-w-2xl mx-auto mb-10" style={{ textWrap: 'balance' }}>
+            Pão francês estaladiço com fornadas constantes, quitutes frescos, bolo caseiro quentinho e o melhor café coado de Minas.
+          </p>
+        </ScrollReveal>
 
         {/* Primary Action Zone */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
-          <button
-            onClick={onOpenOrderModal}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-[#d97706] hover:bg-[#b45309] text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer whitespace-nowrap"
-          >
-            <MessageCircle className="w-4 h-4" />
-            <span>Fazer Pedido via WhatsApp</span>
-          </button>
+        <ScrollReveal animation="fade-up" delay={400}>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md mx-auto">
+            <button
+              onClick={onOpenOrderModal}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-[#d97706] hover:bg-[#b45309] text-white text-sm font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer whitespace-nowrap"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Fazer Pedido via WhatsApp</span>
+            </button>
 
-          <a
-            href="#localizacao"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white text-sm font-semibold rounded-lg border border-white/20 transition-all cursor-pointer whitespace-nowrap"
-          >
-            <MapPin className="w-4 h-4 text-amber-300" />
-            <span>Como Chegar</span>
-          </a>
-        </div>
+            <a
+              href="#localizacao"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white text-sm font-semibold rounded-lg border border-white/20 transition-all cursor-pointer whitespace-nowrap"
+            >
+              <MapPin className="w-4 h-4 text-amber-300" />
+              <span>Como Chegar</span>
+            </a>
+          </div>
+        </ScrollReveal>
 
         {/* Address Kicker */}
-        <div className="mt-8 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/70">
-          <MapPin className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-          <span>Rua Paranaíba, 291 — Bairro Bom Jesus, Belo Horizonte/MG</span>
-        </div>
+        <ScrollReveal animation="fade-up" delay={500}>
+          <div className="mt-8 flex items-center justify-center gap-2 text-xs sm:text-sm text-white/70">
+            <MapPin className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+            <span>Rua Paranaíba, 291 — Bairro Bom Jesus, Belo Horizonte/MG</span>
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Minimal Playback Controls */}
